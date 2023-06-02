@@ -14,11 +14,13 @@ const ShopContainer = () => {
   return (
     <div className={style.shop_block}>
       <Store mochItems={mockGoods} handleClick={handleClick} />
-      {selectStore && (
+      {selectStore ? (
         <ShopItems
           shop={mockGoods.filter((mochItem) => mochItem.shop === selectStore)}
         />
-      )}
+      ) : (
+        <h1 className={style.shop_block_text}>Choose a store!</h1>
+        )}
     </div>
   );
 };
